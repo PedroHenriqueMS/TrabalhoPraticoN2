@@ -1,0 +1,9 @@
+2024-04-18 13:12:27.906163-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE UNIQUE INDEX OF [*]NOT EXISTS cpf_idx ON WALLETS(CPF)"; expected "., ON"; SQL statement:
+CREATE UNIQUE INDEX OF NOT EXISTS cpf_idx ON WALLETS(CPF) [42001-224]
+2024-04-18 13:14:59.310019-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE UNIQUE INDEX OF [*]NOT EXISTS cpf_idx ON WALLETS(CPF)"; expected "., ON"; SQL statement:
+CREATE UNIQUE INDEX OF NOT EXISTS cpf_idx ON WALLETS(CPF) [42001-224]
+2024-04-18 13:15:59.793536-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE UNIQUE INDEX OF [*]NOT EXISTS cpf_idx ON WALLETS(CPF)"; expected "., ON"; SQL statement:
+CREATE UNIQUE INDEX OF NOT EXISTS cpf_idx ON WALLETS(CPF) [42001-224]
