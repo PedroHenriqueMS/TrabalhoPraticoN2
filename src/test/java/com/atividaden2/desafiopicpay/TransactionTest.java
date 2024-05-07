@@ -11,8 +11,15 @@ import com.atividaden2.desafiopicpay.transaction.Transaction;
 import com.atividaden2.desafiopicpay.wallet.Wallet;
 import com.atividaden2.desafiopicpay.wallet.WalletType;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TransactionTest.
+ */
 public class TransactionTest {
 
+    /**
+     * Test constructor.
+     */
     @Test
     public void testConstructor() {
         Transaction transaction = new Transaction(1L, 2L, 3L, new BigDecimal("50.05"), LocalDateTime.now());
@@ -20,6 +27,9 @@ public class TransactionTest {
         assertEquals(new BigDecimal("50.05"), transaction.value());
     }
 
+    /**
+     * Test debit.
+     */
     @Test
 public void testDebit() {
     Wallet wallet = new Wallet(1L, "John Doe", 123456789L, "john@example.com", "password", WalletType.COMUM.getValue(), new BigDecimal("100.00"));
@@ -30,6 +40,9 @@ public void testDebit() {
     assertEquals(new BigDecimal("50.00"), debitedWallet.balance());
 }
 
+/**
+ * Test credit.
+ */
 @Test
 public void testCredit() {
     Wallet wallet = new Wallet(1L, "John Doe", 123456789L, "john@example.com", "password", WalletType.COMUM.getValue(), new BigDecimal("100.00"));

@@ -19,14 +19,30 @@ import com.atividaden2.desafiopicpay.authorization.Authorization;
 import com.atividaden2.desafiopicpay.authorization.AuthorizerService;
 import com.atividaden2.desafiopicpay.transaction.Transaction;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AuthorizerServiceTest.
+ */
 public class AuthorizerServiceTest {
 
+    /** The authorizer service. */
     private AuthorizerService authorizerService;
+    
+    /** The rest client builder. */
     private RestClient.Builder restClientBuilder;
+    
+    /** The rest client. */
     private RestClient restClient;
+    
+    /** The request headers uri spec. */
     private RestClient.RequestHeadersUriSpec requestHeadersUriSpec;
+    
+    /** The response spec. */
     private RestClient.ResponseSpec responseSpec;
 
+    /**
+     * Sets the up.
+     */
     @BeforeEach
     public void setUp() {
         restClient = mock(RestClient.class);
@@ -42,6 +58,9 @@ public class AuthorizerServiceTest {
         authorizerService = new AuthorizerService(restClientBuilder);
     }
 
+    /**
+     * Test authorize successful.
+     */
     @Test
     public void testAuthorizeSuccessful() {
         Authorization authorization = new Authorization("Authorized");
@@ -54,6 +73,9 @@ public class AuthorizerServiceTest {
         assertDoesNotThrow(() -> authorizerService.authorize(transaction));
     }
 
+    /**
+     * Test authorize unauthorized.
+     */
     @Test
     public void testAuthorizeUnauthorized() {
         Authorization authorization = new Authorization("NotAuthorized");

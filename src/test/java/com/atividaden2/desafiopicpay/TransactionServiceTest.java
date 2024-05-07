@@ -20,8 +20,15 @@ import com.atividaden2.desafiopicpay.wallet.Wallet;
 import com.atividaden2.desafiopicpay.wallet.WalletRepository;
 import com.atividaden2.desafiopicpay.wallet.WalletType;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TransactionServiceTest.
+ */
 public class TransactionServiceTest {
 
+    /**
+     * Test validate invalid transaction.
+     */
     @Test
     public void testValidateInvalidTransaction() {
         TransactionRepository transactionRepository = mock(TransactionRepository.class);

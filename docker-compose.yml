@@ -1,14 +1,24 @@
 version: '3.8'
 services:
   kafka:
+    # Use the latest Bitnami Kafka image
     image: bitnami/kafka:latest
+    # Expose port 9094 for external access
     ports:
       - "9094:9094"
+    # Set environment variables for Kafka configuration
     environment:
-      - KAFKA_CFG_NODE_ID=O
+      # Set the node ID to 0
+      - KAFKA_CFG_NODE_ID=0
+      # Set the process roles to controller and broker
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      # Configure the listeners for Kafka
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      # Advertise the listeners for Kafka
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      # Set the listener security protocol map
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      # Configure the controller quorum voters
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      # Set the controller listener names
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER

@@ -11,13 +11,33 @@ import com.atividaden2.desafiopicpay.wallet.Wallet;
 import com.atividaden2.desafiopicpay.wallet.WalletRepository;
 import com.atividaden2.desafiopicpay.wallet.WalletType;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TransactionService.
+ */
 @Service
 public class TransactionService {
+    
+    /** The transaction repository. */
     private final TransactionRepository transactionRepository;
+    
+    /** The wallet repository. */
     private final WalletRepository walletRepository;
+    
+    /** The authorizer service. */
     private final AuthorizerService authorizerService;
+    
+    /** The notification service. */
     private final NotificationService  notificationService;
 
+    /**
+     * Instantiates a new transaction service.
+     *
+     * @param transactionRepository the transaction repository
+     * @param walletRepository the wallet repository
+     * @param authorizerService the authorizer service
+     * @param notificationService the notification service
+     */
     public TransactionService(TransactionRepository transactionRepository, WalletRepository walletRepository, 
     AuthorizerService authorizerService, NotificationService notificationService) {
         this.transactionRepository = transactionRepository;
@@ -26,6 +46,12 @@ public class TransactionService {
         this.notificationService = notificationService;
     }
 
+    /**
+     * Creates the.
+     *
+     * @param transaction the transaction
+     * @return the transaction
+     */
     @Transactional
     public Transaction create(Transaction transaction) {
         // 1 - validar
@@ -52,6 +78,11 @@ public class TransactionService {
 
     }
 
+    /**
+     * Validate.
+     *
+     * @param transaction the transaction
+     */
     /*
      * - the payer has a common wallet
      * - the payer has enough balance
@@ -65,12 +96,24 @@ public class TransactionService {
         .orElseThrow(() -> new InvalidTransactionException("Invalid transaction - %s".formatted(transaction)));
     }
 
+    /**
+     * Checks if is transaction valid.
+     *
+     * @param transaction the transaction
+     * @param payer the payer
+     * @return true, if is transaction valid
+     */
     public boolean isTransactionValid(Transaction transaction, Wallet payer) {
         return payer.type() == WalletType.COMUM.getValue() &&
         payer.balance().compareTo(transaction.value()) >= 0 &&
          !payer.id().equals(transaction.payee());
     }
 
+    /**
+     * List.
+     *
+     * @return the list
+     */
     public List<Transaction> list() {
         return transactionRepository.findAll();
     }

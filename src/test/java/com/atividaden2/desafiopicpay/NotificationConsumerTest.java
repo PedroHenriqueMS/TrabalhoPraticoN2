@@ -20,14 +20,30 @@ import com.atividaden2.desafiopicpay.notification.NotificationConsumer;
 import com.atividaden2.desafiopicpay.notification.NotificationException;
 import com.atividaden2.desafiopicpay.transaction.Transaction;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class NotificationConsumerTest.
+ */
 public class NotificationConsumerTest {
 
+    /** The notification consumer. */
     private NotificationConsumer notificationConsumer;
+    
+    /** The rest client builder. */
     private RestClient.Builder restClientBuilder;
+    
+    /** The rest client. */
     private RestClient restClient;
+    
+    /** The request headers uri spec. */
     private RestClient.RequestHeadersUriSpec requestHeadersUriSpec;
+    
+    /** The response spec. */
     private RestClient.ResponseSpec responseSpec;
 
+    /**
+     * Sets the up.
+     */
     @BeforeEach
     public void setUp() {
         restClient = mock(RestClient.class);
@@ -43,6 +59,9 @@ public class NotificationConsumerTest {
         notificationConsumer = new NotificationConsumer(restClientBuilder);
     }
 
+    /**
+     * Test receive notification successful.
+     */
     @Test
     public void testReceiveNotificationSuccessful() {
         Notification notification = new Notification(true);
@@ -55,6 +74,9 @@ public class NotificationConsumerTest {
         assertDoesNotThrow(() -> notificationConsumer.receiveNotification(transaction));
     }
 
+    /**
+     * Test receive notification error.
+     */
     @Test
     public void testReceiveNotificationError() {
         Notification notification = new Notification(false);
