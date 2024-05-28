@@ -15,9 +15,9 @@ import io.swagger.v3.oas.annotations.info.License;
 @EnableJdbcAuditing
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(
-	    title = "PI-V",
+	    title = "Desafio PicPay",
 	    version = "1.0",
-	    description = "API RESTful do Projeto Integrador V",
+	    description = "Trabalho Prático para Avaliação N2",
 	    license = @License(name = "Open Source")
 	))
 public class DesafiopicpayApplication {
